@@ -1,0 +1,23 @@
+<div class="text-left mb-4">
+    <h3 class="display-4 text-primary">Yeni Toplantı Ekle</h3>
+</div>
+<form #toplantiodasiAddForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <input type="text" placeholder="Salon adı giriniz" #salon="ngModel" [(ngModel)]="toplantiodasi.salon"
+            class="form-control" name="salon" id="salon" required>
+        <div *ngIf="salon.invalid&&salon.dirty" class="alert alert-danger mt-2"><small>Salon adı gereklidir.</small></div>
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="Toplantı Konusu giriniz" #konu="ngModel"
+            [(ngModel)]="toplantiodasi.konu" class="form-control" name="konu" id="konu" required>
+        <div *ngIf="konu.invalid&&konu.dirty" class="alert alert-danger mt-2"><small>Toplantı Konusu
+                gereklidir.</small></div>
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="Tarihi giriniz  " #tarih="ngModel"
+            [(ngModel)]="toplantiodasi.tarih" class="form-control" name="tarih" id="tarih" required>
+        <div *ngIf="tarih.invalid&&tarih.dirty" class="alert alert-danger mt-2"><small>Tarih gereklidir.</small>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="toplantiodasiAddForm.invalid">Toplantı  Ekle</button>
+</form>

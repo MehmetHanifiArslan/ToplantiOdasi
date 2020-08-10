@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Toplanti Odasi List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Salon</th>
+            <th>Konu</th>
+            <th>Tarih</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let toplantiodasi of toplantiodasi | async">
+            <td>{{toplantiodasi.salon}}</td>
+            <td>{{toplantiodasi.konu}}</td>
+            <td>{{toplantiodasi.tarih | date:'yyyy-MM-dd'}}</td>
+            <td><button (click)="deleteToplantiOdasi(toplantiodasi.id)" class="btn btn-danger">Sil</button>
+                <button (click)="updateToplantiOdasi(toplantiodasi.id)" class="btn btn-info" style="margin-left: 10px">Güncelle</button>
+                
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
